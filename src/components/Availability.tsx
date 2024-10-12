@@ -20,7 +20,7 @@ function Availability() {
   const [selectedDate, setSelectedDate] = useState<Date>(new Date());
   const [schedule, setSchedule] = useState<Schedule>(scheduleData);
   const scheduleDate: ScheduleDate = schedule.dates.find(scheduleDate => isSameDay(scheduleDate.date, selectedDate)) || getNewScheduleDate(selectedDate);
-  const highlightedDays = schedule.dates.filter(date => date.timeSlots.length).map(date => date.date.getDate());
+  const highlightedDays = schedule.dates.map(sd => sd.date);
   const scheduleMutation = useMutation({
     mutationFn: (newSchedule: Schedule) => saveSchedule(newSchedule)
   })

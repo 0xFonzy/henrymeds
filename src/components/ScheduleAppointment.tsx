@@ -26,7 +26,7 @@ function ScheduleAppointment() {
   const [timerOn, setTimerOn] = useState(false);
   const schedule: Schedule = scheduleData;
   const scheduleDate: ScheduleDate = schedule.dates.find((scheduleDate) => isSameDay(scheduleDate.date, selectedDate)) || getNewScheduleDate(selectedDate);
-  const highlightedDays = schedule.dates.filter((date) => date.timeSlots.length).map((date) => date.date.getDate());
+  const highlightedDays = schedule.dates.map(sd => sd.date);
   const intervals = getTimeSlotIntervals(getFutureTimeSlots(scheduleDate.timeSlots, intervalHours), intervalMinutes);
 
   const handleCalendarChange = (newValue: Date) => {

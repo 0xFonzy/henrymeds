@@ -12,6 +12,10 @@ import ErrorBoundary from "./components/ErrorBoundary";
 import ErrorPage from "./pages/ErrorPage";
 
 function App() {
+  // logged in state 
+
+  // display login page
+
   return (
     <Router>
       <ErrorBoundary>
